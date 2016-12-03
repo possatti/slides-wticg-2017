@@ -24,6 +24,11 @@
 		<style type="text/css">
 			/* Remove borda das imagens. */
 			/*.reveal section img { background:none; border:none; box-shadow:none; }*/
+
+			.destaque {
+				color: red;
+				font-weight: bold;
+			}
 		</style>
 	</head>
 	<body>
@@ -32,6 +37,104 @@
 				<section>
 					<h1>Esteganálise em Imagens com Texto Embutido</h1>
 					<p>Autor: Lucas Caetano Possatti</p>
+				</section>
+
+				<!-- Esteganografia -->
+
+				<section data-markdown>
+					<script type="text/template">
+						## Esteganografia
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						- Esconder uma mensagem dentro de outra.
+						- Esteganografia \\(\neq\\) Criptografia.
+						<!-- Esteganografia esconde a comunicação. -->
+						<!-- Apesar de serem usadas juntas. -->
+					</script>
+				</section>
+				<section data-background-image="img/classifica2.png" data-background-size="contain" data-background-color="#fff"></section>
+				<section data-markdown>
+					<script type="text/template">
+						### História
+						- Mensagens tatuadas debaixo do cabelo de escravos.
+						- Furos em papéis revelavam uma mensagem.
+						- Mensagens escondidas em partituras.
+						- Cifra “Ave Maria”.
+						- Acróstico.
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Técnicas de esteganografia
+						- Domínio espacial (e.g. LSB).
+						<!-- Manipulam os píxeis. -->
+						- Domínio de transformação (e.g. DCT).
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Domínio espacial
+						<!-- Manipulam os píxeis. -->
+						- **Least Significant Bit (LSB)**
+						- *Matrix Embedding*
+						- *Pixel-value-based image hiding*
+						- *Difference Expansion* (DE)
+						- *Histogram modification*
+						- *Predicted based image hiding*
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### *Least Significant Bit* (LSB)
+						- Bit menos significativo.
+						- Altera pouco a imagem.
+						- Exemplo:
+							- 1001110<span class="destaque">1</span>
+							- 1001110<span class="destaque">0</span>
+						- Não funciona em JPEG.
+							- A compressão atrapalha a técnica.
+							- Pode ser detectada facilmente (devido a quantização).
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Variações do LSB
+						- Usar os outros planos de bit:
+							- 1001110<span class="destaque">1</span>
+							- 100111<span class="destaque">01</span>
+							- 10011<span class="destaque">101</span>
+						- LSB não-sequencial.
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Domínio de transformação
+						- Usada também para criar marcas d'água.
+						- Possíveis transformações:
+							- *Discrete Cosine Transform* (DCT)
+							- *Discrete Wavelet Transform* (DWT)
+							- *Discrete Fourier Transform* (DFT)
+						- O formato JPEG usa DCTs.
+						<!-- Usa DCT em blocos de 8x8 píxeis para  -->
+					</script>
+				</section>
+
+				<!-- Esteganálise -->
+
+				<section data-markdown>
+					<script type="text/template">
+						## Esteganálise
+					</script>
+				</section>
+
+				<!-- Curvas ROC -->
+
+				<section data-markdown>
+					<script type="text/template">
+						## Curvas ROC
+					</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
