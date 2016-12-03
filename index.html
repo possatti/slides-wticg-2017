@@ -128,6 +128,210 @@
 						## Esteganálise
 					</script>
 				</section>
+				<section data-markdown>
+					<script type="text/template">
+						- Busca detectar a presença de esteganografia.
+						- Alguns dos principais métodos:
+							- Ataque Visual
+							- Chi Square
+							- RS Analysis
+							- Primary Sets
+							- Sample Pair
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Ataque Visual
+						- Pré-processa a imagem.
+						- Busca artefatos que denunciem a esteganografia.
+						- Muito subjetivo.
+					</script>
+				</section>
+				<section data-background-image="img/attacks--visual-attacks.jpg" data-background-size="contain" data-background-color="#fff"></section>
+				<section data-markdown>
+					<script type="text/template">
+					### Chi Square
+					- Análise de *Pair of Values* (PoV).
+					- Exemplo de PoV:
+						- 1001110<span class="destaque">1</span>
+						- 1001110<span class="destaque">0</span>
+					- A esteganografia LBS modifica as frequências do PoV.
+						- As frequências se igualam.
+					- Mais útil para detectar esteganografia LSB sequencial.
+					</script>
+				</section>
+				<section data-background-image="img/westfeld-histogram.png" data-background-size="contain" data-background-color="#fff"></section>
+				<section data-markdown>
+					<script type="text/template">
+						### RS Analysis
+						- Detecta quando os bits são espalhados pela esteganograma.
+						- Afirma que embutir 0,005 bits por píxel é seguro.
+					</script>
+				</section>
+				<section>
+						<h3>Funcionamento do RS Analysis</h3>
+						<ul>
+							<li>Suponhamos uma imagem de \( M \times N \) píxeis.</li>
+							<li>Cada píxel tem um valor pertencente à \(P = \{0,\ldots,255\}\).</li>
+							<li>Criação de grupos disjuntos com \(n\) píxeis adjacentes \((x_1, \ldots, x_n)\).</li>
+							<li>Para \(n = 4\), \(G = (x_1, x_2, x_3, x_4)\).</li>
+						</ul>
+				</section>
+				<section>
+						<h3>Funcionamento do RS Analysis</h3>
+						<ul>
+							<li>Definimos uma função de discriminação \(f\).</li>
+							<li>\(f\) é usada para definir quão <i>suave</i> é o grupo.</li>
+							<!-- Quanto maior o valor, mais irregular é o grupo. -->
+						</ul>
+						<p>
+							$$f(x_1, x_2,..., x_n) = \sum_{i=1}^{n-1} |x_{i+1} - x_i|$$
+						</p>
+						<ul>
+							<li>Exemplos:</li>
+							<ul>
+								<li>\(f (1, 0, 1, 0) = 3\)</li>
+								<li>\(f (11, 22, 55, 33) = 66\)</li>
+								<li>\(f (233, 233, 233, 233) = 0\)</li>
+							</ul>
+						</ul>
+				</section>
+				<section>
+						<h3>Funcionamento do RS Analysis</h3>
+						<ul>
+							<li>Definimos uma função de <i>flipping</i> (inversão), chamada \(F\).</li>
+							<li>\(F (F (x)) = x\)</li>
+							<li>\(F_1: 0 \leftrightarrow 1, 2 \leftrightarrow 3, ..., 254 \leftrightarrow 255\)</li>
+							<!-- F_1 transforma pares em ímpares. -->
+							<li>\(F_{-1}: -1 \leftrightarrow 0, 1 \leftrightarrow 2, ..., 255 \leftrightarrow 256\)</li>
+							<li>\(F_0(x) = x\)</li>
+						</ul>
+				</section>
+				<section>
+						<h3>Funcionamento do RS Analysis</h3>
+						<ul>
+							<li>Grupos regulares: \(G \in R \leftrightarrow f(F(G)) > f(G)\)</li>
+							<li>Grupos singulares: \(G \in S \leftrightarrow f(F(G)) < f(G)\)</li>
+							<li>Grupos inutilizáveis: \(G \in U \leftrightarrow f(F(G)) = f(G)\)</li>
+							<li>Exemplo de grupo regular: \((1, 2, 3, 4)\)</li>
+							<ul>
+								<li>\(f(1, 2, 3, 4) = 3\)</li>
+								<li>Após <i>flipping</i> \((F_1)\) fica mais irregular: \((0, 3, 2, 5)\).</li>
+								<li>\(f(0, 3, 2, 5) = 7\)</li>
+							</ul>
+						</ul>
+				</section>
+				<section>
+						<h3>Funcionamento do RS Analysis</h3>
+						<ul>
+							<li>Máscaras aplicam diferentes transformações nos componentes de um grupo.</li>
+							<li>Exemplo: $$M = (-1,0,1,0)$$</li>
+							<li>É possível usar máscaras diferentes.</li>
+						</ul>
+				</section>
+				<section>
+						<h3>Funcionamento do RS Analysis</h3>
+						<ul>
+							<li>Inverter os LSBs de uma imagem típica, torna seus grupos mais irregulares.</li>
+							<li class="destaque">Revisar depois...</li>
+						</ul>
+				</section>
+				<section>
+						<h3>Funcionamento do RS Analysis</h3>
+						<ul>
+							<li>\(R_M\) é o número relativo de grupos regulares para a máscara \(M\).</li>
+							<li>\(S_M\) é o número relativo de grupos singulares.</li>
+							<li>\(R_M\) e \(S_M\) são porcentagens relativas ao total de grupos.</li>
+							<li>\((R_M + S_M) \leq 1\) e \((R_{-M} + S_{-M}) \leq 1\)</li>
+							<li>Em uma imagem típica: $$R_M \cong R_{-M} \text{ e } S_M \cong S_{-M}$$</li>
+							<li>Porém essa equação é violada ao randomizar o plano LSB.</li>
+							<li>Pois a diferença de \(R_M\) e \(S_M\) cai para zero.</li>
+						</ul>
+				</section>
+				<section>
+						<h3>Funcionamento do RS Analysis</h3>
+						<ul>
+							<li>Após randomizar 50% do plano LSB (embutindo 100% dos LSBs): $$R_M \cong S_M$$</li>
+							<li>Enquanto a diferença entre \(R_{-M}\) e \(S_{-M}\) aumenta.</li>
+						</ul>
+				</section>
+				<section data-background-image="img/fridrich--reliable--rs-diagram.png" data-background-size="contain" data-background-color="#fff"></section>
+				<section>
+						<h3>Funcionamento do RS Analysis</h3>
+						<ul>
+							<!-- <li>O RS Analysis funciona estimando as curvas da imagem.</li> -->
+							<!-- <li>E calculando as interseções entre elas.</li> -->
+							<li>Medindo o número de grupos \(R\) e \(S\), obtemos os pontos:
+							$$R_M(p/2) \text{, } S_M(p/2) \text{, } R_{-M}(p/2) \text{, e } S_{-M}(p/2)$$</li>
+							<li>\(p\) é o tamanho da mensagem (porcentagem do nº de píxeis).</li>
+							<li>Fazemos o <i>flipping</i> de <b>todos</b> os LSBs.</li>
+							<li>Calculando \(R\) e \(S\) novamente, obtemos os pontos:
+							$$R_M(1-p/2) \text{, } S_M(1-p/2) \text{, } R_{-M}(1-p/2) \text{, e } S_{-M}(1-p/2)$$</li>
+							<!-- Caracaaaas, entendi a parte abaixo agora. -->
+							<li>Para calcular \(R_M(1/2)\) e \(S_M(1/2)\):</li>
+							<ul>
+								<li>Randomizamos o plano LSB.</li>
+								<li>Medimos \(R_M(1/2)\) e \(S_M(1/2)\).</li>
+								<li>Repetimos esse processo esse processo várias vezes.</li>
+								<li>Estimamos \(R_M(1/2)\) e \(S_M(1/2)\) estatisticamente pelos cálculos anteriores.</li>
+							</ul>
+						</ul>
+				</section>
+				<section>
+						<h3>Funcionamento do RS Analysis</h3>
+						<ul>
+							<li>Para encurtar o processo de cálculo do \(R_M(1/2)\) e \(S_M(1/2)\), assumimos:</li>
+							<ol>
+								<li>O ponto de intercessão das curvas de \(R_M\) e \(R_{-M}\) tem a mesma coordenada \(x\) que o ponto de intercessão das curvas \(S_M\) e \(S_{-M}\).</li>
+								<!-- Interseções da extrema esquerda. -->
+								<li>As curvas \(R_M\) e \(S_{M}\) se intersedem em \(m=50\%\) </li>
+							</ol>
+							<li>Essas suposições (<i>assumptions</i>) permitem usarmos uma fórmula mais “simples” para calcular \(p\).</li>
+						</ul>
+				</section>
+				<section>
+						<h3>Funcionamento do RS Analysis</h3>
+						<ul>
+							<li>Reescalamos o eixo \(x\) para que \(p/2\) se torne 0 e \(100\%-p/2\) se torne 1.</li>
+							<li>
+								A coordenada \(x\) da intersessão é a raíz de:
+								$$2(d_1+d_0)x^2 + (d_{-0}-d_{-1}-d_{1}-3d_{0})x + d_{0} - d_{-0} = 0$$
+							</li>
+							<li>
+								Onde:
+								$$d_{0} = R_{M}(p/2) - S_{M}(p/2)$$
+								$$d_{-0} = R_{-M}(p/2) - S_{-M}(p/2)$$
+								$$d_{1} = R_{M}(1-p/2) - S_{M}(1-p/2)$$
+								$$d_{-1} = R_{-M}(1-p/2) - S_{-M}(1-p/2)$$
+							</li>
+							<li>
+								E calculamos \(p\):
+								$$p = x / (x-1/2)$$
+							</li>
+						</ul>
+				</section>
+				<section>
+						<h3>Funcionamento do RS Analysis</h3>
+						<ul>
+							<li>Para implementar o RS Analysis, precisamos definir:</li>
+							<ol>
+								<li>Tamanho \(n\) dos grupos.</li>
+								<li>Qual máscara utilizar.</li>
+							</ol>
+						</ul>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Primary Sets
+						- ...
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Sample Pair
+						- ...
+					</script>
+				</section>
 
 				<!-- Curvas ROC -->
 
