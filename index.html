@@ -410,49 +410,9 @@ e métodos de esteganálise disponíveis atualmente.
 						- Extraíamos os bytes necessários desses livros quando fazíamos os embutimentos.
 					</script>
 				</section>
-				<section data-markdown>
-					<script type="text/template">
-						### Ambiente de Testes
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						- Para cada ferramenta de esteganografia:
-							- Estimamos a capacidade esteganográfica.
-							-	Criamos 10 estego-imagens com diferentes tamanhos de mensagem (10% à 100% da capacidade).
-						- Analisamos todas as imagens usando o StegExpose.
-					</script>
-				</section>
 				<section>
-					<img src="img/processo.png">
-				</section>
-				<!-- <section>
-										<img src="img/processo.png" style="background-color:white;">
-				</section> -->
-				<section data-markdown>
-					<script type="text/template">
-						<!-- - Disponível em [github.com/possatti/bsi-tcc](http://github.com/possatti/bsi-tcc). -->
-						- `embed.sh` faz os embutimentos.
-						- `Makefile` centraliza as tarefas.
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						```bash
-						# Cria estego-imagens usando o programa especificado.
-						make outguess
-						make steghide
-						make f5
-						make lsbsteg
-						make stepic
-
-						# Gera relatórios do StegExpose.
-						make stegexpose
-
-						# Todas as etapas acima.
-						make all
-						```
-					</script>
+					<h3>Ambiente de Testes</h3>
+					<img src="img/processo.png" style="background-color: white;">
 				</section>
 				<section data-markdown>
 					<script type="text/template">
