@@ -20,25 +20,37 @@ div.slide-number {
 /* Cria classes para duas colunas em um mesmo slide. */
 /*  - http://stackoverflow.com/a/38462769 */
 div.left {
-  float: left;
+	float: left;
 }
 div.right {
-  float: right;
+	float: right;
 }
 div.column {
-  width: 40%;
-  text-align: center;
-  padding: 20px;
+	width: 40%;
+	text-align: center;
+	padding: 20px;
 }
 div.column > li {
-  text-align: left;
+	text-align: left;
 }
 
-/* http://stackoverflow.com/a/1461023 */
-/*ul {
-   list-style-position: inside;
-}*/
-
+/* Número de colunas indeterminado. */
+div.col {
+	float: left;
+	text-align: center;
+}
+div.col > ul {
+	/* http://stackoverflow.com/a/1461023 */
+	list-style-position: inside;
+	text-align: left;
+}
+div.w20 { width: 20%; }
+div.w30 { width: 30%; }
+div.w40 { width: 40%; }
+div.w50 { width: 50%; }
+div.w60 { width: 60%; }
+div.w70 { width: 70%; }
+div.w80 { width: 80%; }
 
 /* Cuida das imagens. */
 .reveal section img {

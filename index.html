@@ -106,50 +106,28 @@ e métodos de esteganálise disponíveis atualmente.
 						</ul>
 					</div>
 				</section>
-				<section data-markdown>
-					<script type="text/template">
-						### Técnicas de esteganografia
-						- Domínio espacial (e.g. LSB).
-						<!-- Manipulam os píxeis. -->
-						- Domínio de transformação (e.g. DCT).
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						### Domínio espacial
-						<!-- Manipulam os píxeis. -->
-						- **Least Significant Bit (LSB)**
-						- *Matrix Embedding*
-						- *Pixel-value-based image hiding*
-						- *Difference Expansion* (DE)
-						- *Histogram modification*
-						- *Predicted based image hiding*
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						### *Least Significant Bit* (LSB)
-						- Bit menos significativo.
-						- Altera pouco a imagem.
-						- Exemplo:
-							- 1001110<span class="destaque">1</span>
-							- 1001110<span class="destaque">0</span>
-						<!-- Embutir 100% faz com que as frequências dos PoVs se aproximem -->
-						<!-- - Não funciona em JPEG. -->
-							<!-- - A compressão atrapalha a técnica. -->
-							<!-- - Pode ser detectada facilmente (devido a quantização). -->
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						<!-- Entra no anterior como um único tópico. -->
-						### Variações do LSB
-						- Usar os outros planos de bit:
-							- 1001110<span class="destaque">1</span>
-							- 100111<span class="destaque">01</span>
-							- 10011<span class="destaque">101</span>
-						- LSB não-sequencial.
-					</script>
+				<section>
+					<h2>Esteganografia LSB</h2>
+					<div class="col w40">
+						<h3>Ferramentas</h3>
+						<ul>
+							<li>Stepic</li>
+							<li>LSBSteg</li>
+						</ul>
+					</div>
+					<div class="col w60">
+						<h3>Conceito</h3>
+						<ul>
+							<li><em>Least Significant Bit</em> (LSB)</li>
+							<li>1001110<span class="destaque">0</span></li>
+							<li>Variações:</li>
+							<ul>
+								<li>Usar os outros planos de bit.</li>
+								<li>LSB não-sequencial.</li>
+							</ul>
+						</ul>
+					</div>
+					<aside class="notes"><ul><li>Altera pouco a imagem.</li></ul></aside>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
