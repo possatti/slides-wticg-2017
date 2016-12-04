@@ -173,18 +173,20 @@ e métodos de esteganálise disponíveis atualmente.
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-					### Chi Square
-					- Análise de *Pair of Values* (PoV).
-					- Exemplo de PoV:
-						- 1001110<span class="destaque">1</span>
-						- 1001110<span class="destaque">0</span>
-					- A esteganografia LBS modifica as frequências do PoV.
-						- As frequências se igualam.
-					- Mais útil para detectar esteganografia LSB sequencial.
+						### Chi Square
+						- Análise de *Pair of Values* (PoV).
+						- Exemplo de PoV:
+							- 1001110<span class="destaque">1</span>
+							- 1001110<span class="destaque">0</span>
+						- A esteganografia LBS modifica as frequências do PoV.
+						- Mais útil para detectar esteganografia LSB sequencial.
+
+						<aside class="notes"><ul><li>O algoritmo é alimentado com os bytes sequencialmente.</li></ul></aside>
 					</script>
 				</section>
 				<section>
-					<img src="img/westfeld-histogram.png">
+					<h3>Chi Square</h3>
+					<img src="img/westfeld-histogram.png" style="width: 100% !important;">
 				</section>
 				<section data-markdown>
 					<script type="text/template">
