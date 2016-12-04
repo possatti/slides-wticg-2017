@@ -603,10 +603,7 @@ e métodos de esteganálise disponíveis atualmente.
 				history: true,
 				transition: 'linear',
 				// center: false,
-
-				// transitionSpeed: 'default', // default/fast/slow
 				// showNotes: true,
-
 
 				math: {
 					// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
@@ -622,6 +619,13 @@ e métodos de esteganálise disponíveis atualmente.
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
+			});
+
+			/* Mostra as anotações se tiver 'notes' na url. */
+			Reveal.addEventListener('ready', function(event) {
+				if (window.location.search.match(/notes/gi)) {
+					Reveal.configure({ showNotes: true });
+				}
 			});
 		</script>
 	</body>
