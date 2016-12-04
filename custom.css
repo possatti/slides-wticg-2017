@@ -52,3 +52,11 @@ div.column > li {
 .reveal section p.caption {
 	font-size: 32px;
 }
+
+/* Formata código inline. */
+code {
+}
+
+/* Formata o que tá em itálico. */
+i, em {
+}
