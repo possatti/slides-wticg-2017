@@ -35,8 +35,14 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>Esteganálise em Imagens com Texto Embutido</h1>
-					<p>Autor: Lucas Caetano Possatti</p>
+					<h2>Uma Análise Comparativa de Ferramentas de Esteganálise em Estego-Imagens com Texto Embutido</h2>
+					<div>
+						<p>
+							<b>Autor:</b> Lucas Caetano Possatti<br/>
+							<b>Orientadora:</b> Profª. Drª. Karin Satie Komati<br/>
+							<b>Coorientador:</b> Prof. Dr. Jefferson Oliveira Andrade
+						</p>
+					</div>
 				</section>
 
 				<!-- Esteganografia -->
@@ -93,13 +99,15 @@
 						- Exemplo:
 							- 1001110<span class="destaque">1</span>
 							- 1001110<span class="destaque">0</span>
-						- Não funciona em JPEG.
-							- A compressão atrapalha a técnica.
-							- Pode ser detectada facilmente (devido a quantização).
+						<!-- Embutir 100% faz com que as frequências dos PoVs se aproximem -->
+						<!-- - Não funciona em JPEG. -->
+							<!-- - A compressão atrapalha a técnica. -->
+							<!-- - Pode ser detectada facilmente (devido a quantização). -->
 					</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
+						<!-- Entra no anterior como um único tópico. -->
 						### Variações do LSB
 						- Usar os outros planos de bit:
 							- 1001110<span class="destaque">1</span>
@@ -239,6 +247,7 @@
 				<section>
 						<h3>Funcionamento do RS Analysis</h3>
 						<ul>
+							<!-- JOA: Porcentagens relativas -->
 							<li>\(R_M\) é o número relativo de grupos regulares para a máscara \(M\).</li>
 							<li>\(S_M\) é o número relativo de grupos singulares.</li>
 							<li>\(R_M\) e \(S_M\) são porcentagens relativas ao total de grupos.</li>
@@ -286,7 +295,7 @@
 								<!-- Interseções da extrema esquerda. -->
 								<li>As curvas \(R_M\) e \(S_{M}\) se intersedem em \(m=50\%\) </li>
 							</ol>
-							<li>Essas suposições (<i>assumptions</i>) permitem usarmos uma fórmula mais “simples” para calcular \(p\).</li>
+							<li>Essas suposições (<i>assumptions</i>) permitem usarmos uma fórmula menos trabalhosa para calcular \(p\).</li>
 						</ul>
 				</section>
 				<section>
@@ -525,12 +534,10 @@
 				<section data-markdown>
 					<script type="text/template">
 						### Comparação dos métodos de esteganálise
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
 						- Geramos gráficos ROC para cada programa.
 						- Os gráficos mostram o desempenho dos métodos contra cada programa.
+						<!-- Explicar o threshold (que é o critério para o processo de classificação) -->
+						<!-- Colocar o Listing 3.7 (relatório do StegExpose) -->
 					</script>
 				</section>
 				<section data-background-image="resultados/roc-lsbsteg.png" data-background-size="contain" data-background-color="#fff"></section>
@@ -554,17 +561,12 @@
 
 				<section data-markdown>
 					<script type="text/template">
-						## Conclusão
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						- Esteganografia \\(\neq\\) Criptografia
-						- Esteganálise tenta "quebrar" a esteganografia.
-						- Esteganálise busca classificar imagens e descobrir o tamanho da mensagem.
-						- LSB é vulnerável.
+						### Considerações finais
+						- Este trabalho tem escopo delimitado <!-- em esteganálise LSB. E limitada de ferramentas -->
+						- LSB foi o deu a maior taxa de detecção.
 						<!-- Não tem motivos para continuar usando LSB. Exitem outros programas. -->
 						- Existem métodos para detectar o Outguess e F5.
+						- Esteganografia e esteganálise são uma corrida.
 					</script>
 				</section>
 
@@ -572,20 +574,14 @@
 
 				<section data-markdown>
 					<script type="text/template">
-						## Trabalhos Futuros
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
+						### Trabalhos Futuros
 						- Usar um banco de imagens maior e mais variado.
 						<!-- Gerando curvas ROCs mais precisas. -->
 						- Usar outros tipos de dados: vídeo, áudio, etc.
-						- Usar outros programas de esteganografia (e.g. LSB não-sequencial).
-						- Usar outros métodos e programas de esteganálise.
+						- Usar outros programas de esteganografia.
+						- Usar outros métodos de esteganálise.
 						<!-- Stegdetect e outros. -->
 						- Criar implementações Open-Source dos métodos que detectam Outguess e F5.
-						- Estudo prático da esteganálise.
-						<!-- Quando não se sabe a classificação real da imagens. -->
 					</script>
 				</section>
 
@@ -608,8 +604,15 @@
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+				controls: false,
+				slideNumber: true,
 				history: true,
 				transition: 'linear',
+				// center: false,
+
+				// transitionSpeed: 'default', // default/fast/slow
+				// showNotes: true,
+
 
 				math: {
 					// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
