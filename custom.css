@@ -1,0 +1,18 @@
+/* Remove borda das imagens. */
+/*.reveal section img { background:none; border:none; box-shadow:none; }*/
+
+/* Destaque que eu dou aos LSBs. */
+span.destaque {
+	color: red;
+	font-weight: bold;
+}
+
+/* Faz o número da página ficar maior. */
+div.slide-number {
+	bottom: 15px !important;
+	right: 15px !important;
+	font-size: 24px !important;
+	padding: 5px 6px 7px 3px !important;
+	font-weight: bold;
+	border-radius: 5px;
+}
