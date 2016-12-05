@@ -27,7 +27,7 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
+				<section id="titulo">
 					<h2>Uma Análise Comparativa de Ferramentas de Esteganálise em Estego-Imagens com Texto Embutido</h2>
 					<div>
 						<p>
@@ -40,7 +40,7 @@
 
 				<!-- Introdução -->
 
-				<section>
+				<section id="esteganografia">
 					<h3>Esteganografia</h3>
 					<img src="img/passos.png">
 					<aside class="notes"><ul><li>Esteganografia é diferente de Criptografia.</li></ul></aside>
@@ -63,7 +63,7 @@
 						</aside>
 					</script>
 				</section>
-				<section data-markdown>
+				<section data-markdown id="esteganalise">
 					<script type="text/template">
 						### Esteganálise (a solução)
 						- Busca detectar a esteganografia.
@@ -75,7 +75,7 @@
 							- Sample Pair
 					</script>
 				</section>
-				<section data-markdown>
+				<section data-markdown id="objetivo">
 					<script type="text/template">
 						### Objetivo do trabalho
 
@@ -86,7 +86,7 @@ e métodos de esteganálise disponíveis atualmente.
 
 				<!-- Esteganografia -->
 
-				<section>
+				<section id="ferramentas">
 					<h2>Ferramentas e métodos</h2>
 					<div class="column left">
 						<h3>Esteganografia</h3>
@@ -110,7 +110,7 @@ e métodos de esteganálise disponíveis atualmente.
 						</ul>
 					</div>
 				</section>
-				<section>
+				<section id="lsb">
 					<h2>Esteganografia LSB</h2>
 					<div class="col w40">
 						<h3>Ferramentas</h3>
@@ -133,7 +133,7 @@ e métodos de esteganálise disponíveis atualmente.
 					</div>
 					<aside class="notes"><ul><li>Altera pouco a imagem.</li></ul></aside>
 				</section>
-				<section data-markdown>
+				<section data-markdown id="dct">
 					<script type="text/template">
 						<h2>Esteganografia nos DCT</h2>
 						<div class="col w40">
@@ -152,7 +152,7 @@ e métodos de esteganálise disponíveis atualmente.
 						</div>
 					</script>
 				</section>
-				<section data-markdown>
+				<section data-markdown id="steghide">
 					<script type="text/template">
 						## Steghide
 						- Esconde em imagens e áudio.
@@ -163,7 +163,7 @@ e métodos de esteganálise disponíveis atualmente.
 
 				<!-- Esteganálise -->
 
-				<section data-markdown>
+				<section data-markdown id="chi-square">
 					<script type="text/template">
 						### Chi Square
 						- Análise de *Pair of Values* (PoV).
@@ -180,7 +180,7 @@ e métodos de esteganálise disponíveis atualmente.
 					<h3>Chi Square</h3>
 					<img src="img/westfeld-histogram.png" style="width: 100% !important;">
 				</section>
-				<section>
+				<section id="rs-analysis">
 					<h2>RS Analysis</h2>
 
 					<ul>
@@ -231,19 +231,19 @@ e métodos de esteganálise disponíveis atualmente.
 						</ul>
 					</aside>
 				</section>
-				<section data-markdown>
+				<section data-markdown id="primary-sets">
 					<script type="text/template">
 						### Primary Sets
 						- ...
 					</script>
 				</section>
-				<section data-markdown>
+				<section data-markdown id="sample-pair">
 					<script type="text/template">
 						### Sample Pair
 						- ...
 					</script>
 				</section>
-				<section data-markdown>
+				<section data-markdown id="stegexpose">
 					<script type="text/template">
 						## StegExpose
 						- Reuni implementações dos quatro métodos.
@@ -261,7 +261,7 @@ e métodos de esteganálise disponíveis atualmente.
 
 				<!-- Materiais e Métodos -->
 
-				<section data-markdown>
+				<section data-markdown id="banco-de-imagens">
 					<script type="text/template">
 						### Banco de Imagens
 						- Usamos a API do Pixabay.
@@ -274,7 +274,7 @@ e métodos de esteganálise disponíveis atualmente.
 						<aside class="notes"><ul><li>Usamos nomes de países igual o StegExpose.</li></ul></aside>
 					</script>
 				</section>
-				<section data-markdown>
+				<section data-markdown id="textos-utilizados">
 					<script type="text/template">
 						### Textos Utilizados
 						- Usamos livros do [Project Guttenberg](http://www.gutenberg.org/).
@@ -284,14 +284,14 @@ e métodos de esteganálise disponíveis atualmente.
 						- Extraíamos os bytes necessários desses livros quando fazíamos os embutimentos.
 					</script>
 				</section>
-				<section>
+				<section id="ambiente-de-testes">
 					<h3>Ambiente de Testes</h3>
 					<img src="img/processo.png" style="background-color: white;">
 				</section>
 
 				<!-- Resultados -->
 
-				<section data-markdown>
+				<section data-markdown id="comparacao-dos-metodos">
 					<script type="text/template">
 						### Comparação dos métodos de esteganálise
 						- Curvas ROC mostram o desempenho dos classificadores.
@@ -349,7 +349,7 @@ e métodos de esteganálise disponíveis atualmente.
 						</ul>
 					</aside>
 				</section>
-				<section>
+				<section id="threshold-0-1">
 					<h4>Imagens detectadas (<em>threshold</em> de 0.1)</h4>
 					<table class="small-table">
 						<thead>
@@ -469,7 +469,7 @@ e métodos de esteganálise disponíveis atualmente.
 
 				<!-- Considerações finais -->
 
-				<section data-markdown>
+				<section data-markdown id="consideracoes-finais">
 					<script type="text/template">
 						### Considerações finais
 						- Este trabalho tem escopo delimitado.
@@ -483,7 +483,7 @@ e métodos de esteganálise disponíveis atualmente.
 
 				<!-- Trabalhos Futuros -->
 
-				<section data-markdown>
+				<section data-markdown id="trabalhos-futuros">
 					<script type="text/template">
 						### Trabalhos Futuros
 						- Usar um banco de imagens maior e mais variado.
