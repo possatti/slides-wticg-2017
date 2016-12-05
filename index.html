@@ -294,18 +294,67 @@ e métodos de esteganálise disponíveis atualmente.
 					<h3>Ambiente de Testes</h3>
 					<img src="img/processo.png" style="background-color: white;">
 				</section>
+
+				<!-- Resultados -->
+
 				<section data-markdown>
 					<script type="text/template">
 						## Resultados
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						- Aplicamos os embutimentos.
+						<!-- - Aplicamos os embutimentos. -->
 						- Usamos o StegExpose com o threshold padrão (0.2).
 						<!-- - Processamos os relatórios para gerar tabelas e gráficos. -->
 					</script>
 				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Comparação dos métodos de esteganálise
+						- Geramos gráficos ROC para cada programa.
+						- Os gráficos mostram o desempenho dos métodos contra cada programa.
+						<!-- Explicar o threshold (que é o critério para o processo de classificação) -->
+						<!-- Colocar o Listing 3.7 (relatório do StegExpose) -->
+					</script>
+				</section>
+				<section>
+					<h2>LSBSteg</h2>
+					<img src="resultados/roc-lsbsteg.png">
+					<aside class="notes">
+						<ul>
+							<li>Primary Sets parece ter o pior desempenho.</li>
+							<li>A curva do Chi Square provavelmente seria diferente para LSB não-sequencial.</li>
+							<!-- <li>A curva ROC é uma função degraus.</li> -->
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h2>Stepic</h2>
+					<img src="resultados/roc-stepic.png">
+				</section>
+				<section>
+					<h2>Steghide</h2>
+					<img src="resultados/roc-steghide.png">
+					<aside class="notes">
+						<ul><li>O desempenho foi aleatório.</li></ul>
+					</aside>
+				</section>
+				<section>
+					<h2>Outguess</h2>
+					<img src="resultados/roc-outguess.png">
+				</section>
+				<section>
+					<h2>F5</h2>
+					<img src="resultados/roc-f5.png">
+				</section>
+				<section>
+					<h2>Testes do StegExpose</h2>
+					<img src="img/stegexpose-roc.png">
+					<aside class="notes">
+						<ul>
+							<li>Nos testes do StegExpose, a fusão é sempre melhor.</li>
+							<li>Banco de imagens e ferramentas diferentes.</li>
+						</ul>
+					</aside>
+				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						<!-- Número de imagens detectadas (threshold de 0.2) -->
@@ -384,46 +433,6 @@ e métodos de esteganálise disponíveis atualmente.
 				</section>
 				<section>
 					<img src="resultados/grafico-imagens-detectadas-threshold-0-1.png">
-				</section>
-
-				<!-- Gráficos ROC dos métodos -->
-
-				<section data-markdown>
-					<script type="text/template">
-						### Comparação dos métodos de esteganálise
-						- Geramos gráficos ROC para cada programa.
-						- Os gráficos mostram o desempenho dos métodos contra cada programa.
-						<!-- Explicar o threshold (que é o critério para o processo de classificação) -->
-						<!-- Colocar o Listing 3.7 (relatório do StegExpose) -->
-					</script>
-				</section>
-				<section>
-					<img src="resultados/roc-lsbsteg.png">
-				</section>
-				<section>
-					<img src="resultados/roc-stepic.png">
-				</section>
-				<section>
-					<img src="resultados/roc-f5.png">
-				</section>
-				<section>
-					<img src="resultados/roc-steghide.png">
-				</section>
-				<section>
-					<img src="resultados/roc-outguess.png">
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						- Os desempenhos são muito parecidos.
-						- Difícil de dizer qual é o melhor.
-						- Primary Sets parece ter o pior desempenho.
-						- A curva do Chi Square provavelmente seria diferente para LSB não-sequencial.
-						- Nos testes do StegExpose, a fusão é sempre melhor.
-						- O desempenho contra Steghide, Outguess, e F5 foi aleatório.
-					</script>
-				</section>
-				<section>
-					<img src="img/stegexpose-roc.png">
 				</section>
 
 				<!-- Considerações finais -->
