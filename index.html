@@ -299,19 +299,20 @@ e métodos de esteganálise disponíveis atualmente.
 
 				<section data-markdown>
 					<script type="text/template">
-						## Resultados
-						<!-- - Aplicamos os embutimentos. -->
-						- Usamos o StegExpose com o threshold padrão (0.2).
-						<!-- - Processamos os relatórios para gerar tabelas e gráficos. -->
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
 						### Comparação dos métodos de esteganálise
-						- Geramos gráficos ROC para cada programa.
+						- Curvas ROC mostram o desempenho dos classificadores.
 						- Os gráficos mostram o desempenho dos métodos contra cada programa.
-						<!-- Explicar o threshold (que é o critério para o processo de classificação) -->
-						<!-- Colocar o Listing 3.7 (relatório do StegExpose) -->
+						- Uma curva ROC é formada pela variação do *threshold*.
+						- *Threshold* menor \\(\implies\\) mais falsos positivos.
+						- *Threshold* maior \\(\implies\\) menos verdadeiros positivos.
+
+						<aside class="notes">
+							<ul>
+								<li>Aplicamos os embutimentos.</li>
+								<li>Processamos os relatórios para gerar tabelas e gráficos.</li>
+								<li>Explicar o que é o threshold.</li>
+							</ul>
+						</aside>
 					</script>
 				</section>
 				<section>
@@ -354,39 +355,6 @@ e métodos de esteganálise disponíveis atualmente.
 						</ul>
 					</aside>
 				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						### Considerações
-						- O Outguess falhou ao gerar algumas imagens para 100%.
-						<!-- (a capacidade da imagem foi estourada) -->
-						- Total de 30 imagens para cada célula.
-						- Apenas esteganografia LSB foi detectada.
-						- A partir de 60%, metade das imagens foram detectadas.
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						### Geração das curvas ROC
-						- Formada pela variação do threshold.
-						- Usamos o *score* da fusão para gerar os pontos.
-						- Threshold menor \\(\implies\\) mais falsos positivos.
-						- Threshold maior \\(\implies\\) menos verdadeiros positivos.
-					</script>
-				</section>
-				<!-- resultados/rocs-threshold-0-05.png  resultados/rocs-threshold-0-1.png  resultados/rocs-threshold-0-2.png -->
-<!-- 
-				<section>
-					<img src="resultados/rocs-threshold-0-2.png">
-				</section>
-				<section>
-					<img src="resultados/rocs-threshold-0-1.png">
-				</section>
-				<section>
-					<img src="resultados/rocs-threshold-0-05.png">
-				</section>
- -->
-
 				<section>
 					<h4>Imagens detectadas (<em>threshold</em> de 0.1)</h4>
 					<table class="small-table">
@@ -491,6 +459,14 @@ e métodos de esteganálise disponíveis atualmente.
 							</tr>
 						</tbody>
 					</table>
+					<aside class="notes">
+						<ul>
+							<li>Total de 30 imagens para cada célula.</li>
+							<li>O Outguess falhou ao gerar algumas imagens para 100%.</li>
+							<li>Apenas esteganografia LSB foi detectada.</li>
+							<li>A partir de 20~30%, metade das imagens foram detectadas.</li>
+						</ul>
+					</aside>
 				</section>
 				<section>
 					<h4>Imagens detectadas (<em>threshold</em> de 0.1)</h4>
