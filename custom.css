@@ -66,9 +66,18 @@ div.w80 { width: 80%; }
 }
 
 /* Formata código inline. */
-code {
-}
+/*code {
+	background-color: #949282;
+	padding: 0px 10px !important;
+	border-radius: 10px;
+}*/
 
 /* Formata o que tá em itálico. */
 i, em {
+}
+
+
+.small-table {
+	/*background-color: blue;*/
+	font-size: 28px !important;
 }

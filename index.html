@@ -357,24 +357,6 @@ e métodos de esteganálise disponíveis atualmente.
 
 				<section data-markdown>
 					<script type="text/template">
-						<!-- Número de imagens detectadas (threshold de 0.2) -->
-						|          | F5 | Steghide | Outguess | Stepic | LSBSteg |
-            |:--------:|:--:|:--------:|:--------:|:------:|:-------:|
-            | **0%**   | 1  | 1        | 1        | 0      | 0       |
-            | **10%**  | 0  | 1        | 0        | 1      | 0       |
-            | **20%**  | 0  | 1        | 0        | 1      | 1       |
-            | **30%**  | 0  | 1        | 1        | 3      | 3       |
-            | **40%**  | 0  | 1        | 0        | 6      | 11      |
-            | **50%**  | 0  | 1        | 0        | 10     | 17      |
-            | **60%**  | 0  | 0        | 1        | 15     | 20      |
-            | **70%**  | 0  | 0        | 0        | 18     | 23      |
-            | **80%**  | 0  | 1        | 0        | 22     | 26      |
-            | **90%**  | 0  | 0        | 0        | 24     | 28      |
-            | **100%** | 0  | 1        | 0*       | 26     | 29      |
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
 						### Considerações
 						- O Outguess falhou ao gerar algumas imagens para 100%.
 						<!-- (a capacidade da imagem foi estourada) -->
@@ -382,9 +364,6 @@ e métodos de esteganálise disponíveis atualmente.
 						- Apenas esteganografia LSB foi detectada.
 						- A partir de 60%, metade das imagens foram detectadas.
 					</script>
-				</section>
-				<section>
-					<img src="resultados/grafico-imagens-detectadas.png">
 				</section>
 				<section data-markdown>
 					<script type="text/template">
@@ -396,7 +375,7 @@ e métodos de esteganálise disponíveis atualmente.
 					</script>
 				</section>
 				<!-- resultados/rocs-threshold-0-05.png  resultados/rocs-threshold-0-1.png  resultados/rocs-threshold-0-2.png -->
-
+<!-- 
 				<section>
 					<img src="resultados/rocs-threshold-0-2.png">
 				</section>
@@ -406,32 +385,115 @@ e métodos de esteganálise disponíveis atualmente.
 				<section>
 					<img src="resultados/rocs-threshold-0-05.png">
 				</section>
+ -->
 
-				<section data-markdown>
-					<script type="text/template">
-						### Resultados usando o *threshold* de 0.1
-						<!-- - Refizemos a tabela e gráfico para o *threshold* de 0.1 -->
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						<!-- Número de imagens detectadas (threshold de 0.1) -->
-						|          | F5 | Steghide | Outguess | Stepic | LSBSteg |
-						|:--------:|:--:|:--------:|:--------:|:------:|:-------:|
-						| **0%**   | 8  | 8        | 8        | 1      | 1       |
-						| **10%**  | 5  | 7        | 6        | 7      | 8       |
-						| **20%**  | 4  | 7        | 8        | 13     | 16      |
-						| **30%**  | 6  | 7        | 6        | 20     | 24      |
-						| **40%**  | 6  | 9        | 6        | 25     | 29      |
-						| **50%**  | 4  | 8        | 7        | 28     | 29      |
-						| **60%**  | 3  | 9        | 8        | 29     | 30      |
-						| **70%**  | 3  | 8        | 8        | 29     | 30      |
-						| **80%**  | 3  | 8        | 6        | 30     | 30      |
-						| **90%**  | 2  | 9        | 7        | 30     | 30      |
-						| **100%** | 2  | 8        | 3*       | 30     | 30      |
-					</script>
+				<section>
+					<h4>Imagens detectadas (<em>threshold</em> de 0.1)</h4>
+					<table class="small-table">
+						<thead>
+							<tr>
+								<th style="text-align:center"></th>
+								<th style="text-align:center">F5</th>
+								<th style="text-align:center">Steghide</th>
+								<th style="text-align:center">Outguess</th>
+								<th style="text-align:center">Stepic</th>
+								<th style="text-align:center">LSBSteg</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="text-align:center"><strong>0%</strong></td>
+								<td style="text-align:center">8</td>
+								<td style="text-align:center">8</td>
+								<td style="text-align:center">8</td>
+								<td style="text-align:center">1</td>
+								<td style="text-align:center">1</td>
+							</tr>
+							<tr>
+								<td style="text-align:center"><strong>10%</strong></td>
+								<td style="text-align:center">5</td>
+								<td style="text-align:center">7</td>
+								<td style="text-align:center">6</td>
+								<td style="text-align:center">7</td>
+								<td style="text-align:center">8</td>
+							</tr>
+							<tr>
+								<td style="text-align:center"><strong>20%</strong></td>
+								<td style="text-align:center">4</td>
+								<td style="text-align:center">7</td>
+								<td style="text-align:center">8</td>
+								<td style="text-align:center">13</td>
+								<td style="text-align:center">16</td>
+							</tr>
+							<tr>
+								<td style="text-align:center"><strong>30%</strong></td>
+								<td style="text-align:center">6</td>
+								<td style="text-align:center">7</td>
+								<td style="text-align:center">6</td>
+								<td style="text-align:center">20</td>
+								<td style="text-align:center">24</td>
+							</tr>
+							<tr>
+								<td style="text-align:center"><strong>40%</strong></td>
+								<td style="text-align:center">6</td>
+								<td style="text-align:center">9</td>
+								<td style="text-align:center">6</td>
+								<td style="text-align:center">25</td>
+								<td style="text-align:center">29</td>
+							</tr>
+							<tr>
+								<td style="text-align:center"><strong>50%</strong></td>
+								<td style="text-align:center">4</td>
+								<td style="text-align:center">8</td>
+								<td style="text-align:center">7</td>
+								<td style="text-align:center">28</td>
+								<td style="text-align:center">29</td>
+							</tr>
+							<tr>
+								<td style="text-align:center"><strong>60%</strong></td>
+								<td style="text-align:center">3</td>
+								<td style="text-align:center">9</td>
+								<td style="text-align:center">8</td>
+								<td style="text-align:center">29</td>
+								<td style="text-align:center">30</td>
+							</tr>
+							<tr>
+								<td style="text-align:center"><strong>70%</strong></td>
+								<td style="text-align:center">3</td>
+								<td style="text-align:center">8</td>
+								<td style="text-align:center">8</td>
+								<td style="text-align:center">29</td>
+								<td style="text-align:center">30</td>
+							</tr>
+							<tr>
+								<td style="text-align:center"><strong>80%</strong></td>
+								<td style="text-align:center">3</td>
+								<td style="text-align:center">8</td>
+								<td style="text-align:center">6</td>
+								<td style="text-align:center">30</td>
+								<td style="text-align:center">30</td>
+							</tr>
+							<tr>
+								<td style="text-align:center"><strong>90%</strong></td>
+								<td style="text-align:center">2</td>
+								<td style="text-align:center">9</td>
+								<td style="text-align:center">7</td>
+								<td style="text-align:center">30</td>
+								<td style="text-align:center">30</td>
+							</tr>
+							<tr>
+								<td style="text-align:center"><strong>100%</strong></td>
+								<td style="text-align:center">2</td>
+								<td style="text-align:center">8</td>
+								<td style="text-align:center">3*</td>
+								<td style="text-align:center">30</td>
+								<td style="text-align:center">30</td>
+							</tr>
+						</tbody>
+					</table>
 				</section>
 				<section>
+					<h4>Imagens detectadas (<em>threshold</em> de 0.1)</h4>
 					<img src="resultados/grafico-imagens-detectadas-threshold-0-1.png">
 				</section>
 
