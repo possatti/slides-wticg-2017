@@ -236,7 +236,29 @@ e métodos de esteganálise disponíveis atualmente.
 				<section data-markdown id="primary-sets">
 					<script type="text/template">
 						### Primary Sets (2002)
-						- ...
+						- Inspirado pelo RS Analysis.
+						- Dividimos em pares.
+						- Primary Sets: \\(X, W , V \text{ e } Z\\).
+						- Os Primary Sets são mapeados para uma máquina de estados.
+						- Embutimento LSB faz os pares mudarem de Primary Set.
+
+						<aside class="notes">
+							<ul>
+								<li>Pares são grupos de dois píxeis.</li>
+							</ul>
+						</aside>
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Primary Sets
+
+						<img src="img/dumitrescu2002steganalysis-state-changes.png">
+						<aside class="notes">
+							<ul>
+								<li>e.g. 01 significa quais LSBs foram alterados.</li>
+							</ul>
+						</aside>
 					</script>
 				</section>
 				<section data-markdown id="sample-pair">
@@ -247,6 +269,13 @@ e métodos de esteganálise disponíveis atualmente.
 						- Multiconjuntos chamados *trace multisets*.
 						- Máquina de estados mapeia os *trace multisets*.
 						- Embutimento LSB causa transições e altera a cardinalidade dos *trace multisets*.
+
+						<aside class="notes">
+							<ul>
+								<li>Mesmos autores do Primary Sets.</li>
+								<li>Parece uma generalização do Primary Sets.</li>
+							</ul>
+						</aside>
 					</script>
 				</section>
 				<section data-markdown id="stegexpose">
