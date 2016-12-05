@@ -62,7 +62,9 @@ div.w80 { width: 80%; }
 
 /* Legenda das imagens. */
 .reveal section p.caption {
-	font-size: 32px;
+	font-size: 24px;
+	margin: 0px;
+	padding: 0px;
 }
 
 /* Formata código inline. */
