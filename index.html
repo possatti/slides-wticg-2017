@@ -17,7 +17,7 @@
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			link.href = window.location.search.match( /print/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
@@ -31,9 +31,13 @@
 					<h2>Uma Análise Comparativa de Ferramentas de Esteganálise em Estego-Imagens com Texto Embutido</h2>
 					<div>
 						<p>
-							<b>Autor:</b> Lucas Caetano Possatti<br/>
-							<b>Orientadora:</b> Profª. Drª. Karin Satie Komati<br/>
-							<b>Coorientador:</b> Prof. Dr. Jefferson Oliveira Andrade
+							<b>Autores:</b>
+							<br>
+							Lucas C. Possatti,
+							Leandro C. Resendo,
+							Gilberto Sudré Filho,
+							Jefferson O. Andrade,
+							Karin S. Komati
 						</p>
 					</div>
 				</section>
@@ -165,119 +169,6 @@ e métodos de esteganálise disponíveis atualmente.
 
 				<!-- Esteganálise -->
 
-				<section data-markdown id="chi-square">
-					<script type="text/template">
-						### Chi Square (1999)
-						- Análise de *Pair of Values* (PoV).
-						- Exemplo de PoV:
-							- 1001110<span class="destaque">1</span>
-							- 1001110<span class="destaque">0</span>
-						- A esteganografia LBS modifica as frequências do PoV.
-						- Mais útil para detectar esteganografia LSB sequencial.
-
-						<aside class="notes"><ul><li>O algoritmo é alimentado com os bytes sequencialmente.</li></ul></aside>
-					</script>
-				</section>
-				<section>
-					<h3>Chi Square</h3>
-					<img src="img/westfeld-histogram.png" style="width: 100% !important;">
-				</section>
-				<section id="rs-analysis">
-					<h2>RS Analysis (2001)</h2>
-
-					<ul>
-						<li>Detecta embutimento não-sequencial.</li>
-						<li>Criação de grupos disjuntos de píxeis adjacentes</li>
-						<!-- <li>Para \(n = 4\), \(G = (x_1, x_2, x_3, x_4)\).</li> -->
-						<!-- <li>Definimos uma função de discriminação \(f\).</li> -->
-						<!-- <li>Definimos uma função de <i>flipping</i> (inversão), chamada \(F\).</li> -->
-						<!-- <li>Máscaras aplicam diferentes transformações nos componentes de um grupo.</li> -->
-						<li>Grupos regulares, singulares, ou inutilizáveis.</li>
-						<!-- <li>Grupos regulares: \(G \in R \leftrightarrow f(F(G)) > f(G)\)</li> -->
-						<!-- <li>Grupos singulares: \(G \in S \leftrightarrow f(F(G)) < f(G)\)</li> -->
-
-						<!-- <li>\(R_M\) e \(S_M\) são porcentagens relativas dos grupos regulares e singulares para a máscara \(M\).</li> -->
-						<!-- <li>\((R_M + S_M) \leq 1\) e \((R_{-M} + S_{-M}) \leq 1\)</li> -->
-						<!-- <li>Em uma imagem típica: $$R_M \cong R_{-M} \text{ e } S_M \cong S_{-M}$$</li> -->
-						<!-- <li>Porém essa equação é violada ao randomizar o plano LSB.</li> -->
-						<!-- <li>Pois a diferença de \(R_M\) e \(S_M\) cai para zero.</li> -->
-					</ul>
-
-					<aside class="notes">
-						<ul>
-							<li>Embutir 0,005 bits por píxel é seguro.</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h2>RS Analysis</h2>
-					<img src="img/fridrich--reliable--rs-diagram.png">
-					<aside class="notes">
-						<ul>
-							<li>Após randomizar 50% do plano LSB (embutindo 100% dos LSBs): $$R_M \cong S_M$$</li>
-							<li>Enquanto a diferença entre \(R_{-M}\) e \(S_{-M}\) aumenta.</li>
-							<li>Medindo o número de grupos \(R\) e \(S\), obtemos os pontos:
-							$$R_M(p/2) \text{, } S_M(p/2) \text{, } R_{-M}(p/2) \text{, e } S_{-M}(p/2)$$</li>
-							<li>\(p\) é o tamanho da mensagem (porcentagem do nº de píxeis).</li>
-							<li>Fazemos o <i>flipping</i> de <b>todos</b> os LSBs.</li>
-							<li>Calculando \(R\) e \(S\) novamente, obtemos os pontos:
-							$$R_M(1-p/2) \text{, } S_M(1-p/2) \text{, } R_{-M}(1-p/2) \text{, e } S_{-M}(1-p/2)$$</li>
-							<!-- Caracaaaas, entendi a parte abaixo agora. -->
-							<li>Para calcular \(R_M(1/2)\) e \(S_M(1/2)\):</li>
-							<ul>
-								<li>Randomizamos o plano LSB.</li>
-								<li>Medimos \(R_M(1/2)\) e \(S_M(1/2)\).</li>
-								<li>Repetimos esse processo esse processo várias vezes.</li>
-								<li>Estimamos \(R_M(1/2)\) e \(S_M(1/2)\) estatisticamente pelos cálculos anteriores.</li>
-							</ul>
-						</ul>
-					</aside>
-				</section>
-				<section data-markdown id="primary-sets">
-					<script type="text/template">
-						### Primary Sets (2002)
-						- Inspirado pelo RS Analysis.
-						- Dividimos em pares.
-						- Primary Sets: \\(X, W , V \text{ e } Z\\).
-						- Os Primary Sets são mapeados para uma máquina de estados.
-						- Embutimento LSB faz os pares mudarem de Primary Set.
-
-						<aside class="notes">
-							<ul>
-								<li>Pares são grupos de dois píxeis.</li>
-							</ul>
-						</aside>
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						### Primary Sets
-
-						<img src="img/dumitrescu2002steganalysis-state-changes.png">
-						<aside class="notes">
-							<ul>
-								<li>e.g. 01 significa quais LSBs foram alterados.</li>
-							</ul>
-						</aside>
-					</script>
-				</section>
-				<section data-markdown id="sample-pair">
-					<script type="text/template">
-						### Sample Pair (2003)
-						- Detecta LSB em sinais digitais, como imagens e áudio.
-						- Medições estatísticas nos *sample pairs*.
-						- Multiconjuntos chamados *trace multisets*.
-						- Máquina de estados mapeia os *trace multisets*.
-						- Embutimento LSB causa transições e altera a cardinalidade dos *trace multisets*.
-
-						<aside class="notes">
-							<ul>
-								<li>Mesmos autores do Primary Sets.</li>
-								<li>Parece uma generalização do Primary Sets.</li>
-							</ul>
-						</aside>
-					</script>
-				</section>
 				<section data-markdown id="stegexpose">
 					<script type="text/template">
 						## StegExpose
@@ -381,7 +272,7 @@ e métodos de esteganálise disponíveis atualmente.
 						<ul><li>O desempenho foi aleatório.</li></ul>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Testes do StegExpose</h2>
 					<img src="img/stegexpose-roc.png">
 					<aside class="notes">
@@ -390,8 +281,8 @@ e métodos de esteganálise disponíveis atualmente.
 							<li>Banco de imagens e ferramentas diferentes.</li>
 						</ul>
 					</aside>
-				</section>
-				<section id="threshold-0-1">
+				</section> -->
+				<!--<section id="threshold-0-1">
 					<h4>Imagens detectadas (<em>threshold</em> de 0.1)</h4>
 					<table class="small-table">
 						<thead>
@@ -503,7 +394,7 @@ e métodos de esteganálise disponíveis atualmente.
 							<li>A partir de 20~30%, metade das imagens foram detectadas.</li>
 						</ul>
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<h4>Imagens detectadas (<em>threshold</em> de 0.1)</h4>
 					<img src="resultados/grafico-imagens-detectadas-threshold-0-1.png">
@@ -515,7 +406,7 @@ e métodos de esteganálise disponíveis atualmente.
 					<script type="text/template">
 						### Considerações finais
 						- Este trabalho tem escopo delimitado.
-						- LSB foi o deu a maior taxa de detecção.
+						<!-- - LSB foi o deu a maior taxa de detecção. -->
 						- Existem métodos para detectar o Outguess e F5.
 						- Esteganografia e esteganálise são uma corrida.
 
@@ -525,7 +416,7 @@ e métodos de esteganálise disponíveis atualmente.
 
 				<!-- Trabalhos Futuros -->
 
-				<section data-markdown id="trabalhos-futuros">
+				<!-- <section data-markdown id="trabalhos-futuros">
 					<script type="text/template">
 						### Trabalhos Futuros
 						- Usar um banco de imagens maior e mais variado.
@@ -534,7 +425,7 @@ e métodos de esteganálise disponíveis atualmente.
 						- Usar outros métodos de esteganálise.
 						- Criar implementações Open-Source dos métodos que detectam o Outguess e o F5.
 					</script>
-				</section>
+				</section> -->
 
 				<!-- Finalização -->
 
@@ -543,6 +434,10 @@ e métodos de esteganálise disponíveis atualmente.
 						### Muito obrigado.
 
 						Perguntas?
+
+						<br>
+
+						*lucas.c.possatti@gmail.com*
 					</script>
 				</section>
 
